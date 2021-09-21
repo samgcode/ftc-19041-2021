@@ -1,9 +1,11 @@
+package org.firstinspires.ftc.teamcode.Subsystems;
 
 import com.arcrobotics.ftclib.command.SubsystemBase;
 import com.arcrobotics.ftclib.hardware.motors.Motor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import org.firstinspires.ftc.teamcode.utils.Vector;
+import org.firstinspires.ftc.teamcode.Utils.Vector;
 
 public class DriveSubsystem extends SubsystemBase {
     DcMotor[] xMotors, yMotors;
@@ -23,7 +25,7 @@ public class DriveSubsystem extends SubsystemBase {
         };
     }
 
-    public setSpeed(Vector newSpeed) {
+    public void setSpeed(Vector newSpeed) {
         speed = newSpeed;
     }
 
