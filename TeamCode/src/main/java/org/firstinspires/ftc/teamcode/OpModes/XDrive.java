@@ -1,29 +1,27 @@
-package org.firstinspires.ftc.teamcode.SimpleXDrive;
+package org.firstinspires.ftc.teamcode.OpModes;
 
 import com.arcrobotics.ftclib.command.CommandOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.arcrobotics.ftclib.command.OdometrySubsystem;
+import com.arcrobotics.ftclib.hardware.motors.MotorEx;
+import com.arcrobotics.ftclib.kinematics.HolonomicOdometry;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.Subsystems.*;
 import org.firstinspires.ftc.teamcode.Commands.*;
 
-
-@Disabled
-@TeleOp(name="SimpleXDrive", group="Drive")
-public class SimpleXDrive extends CommandOpMode {
-    public DcMotor[] xMotors;
-    public DcMotor[] yMotors;
-
+@TeleOp(name="XDrive", group="Drive")
+public class XDrive extends CommandOpMode {
     DriveSubsystem driveSubsystem;
-    OdometrySubsystem odometrySubsystem;
+    CustomOdometrySubsystem odometrySubsystem;
 
     SetDriveSpeedCommand setSpeedCommand;
 
     @Override
     public void initialize() {
         driveSubsystem = new DriveSubsystem(hardwareMap);
-        odometrySubsystem = new OdometrySubsystem(hardwareMap, telemetry);
+        odometrySubsystem = new CustomOdometrySubsystem(hardwareMap, telemetry);
 
         setSpeedCommand = new SetDriveSpeedCommand(driveSubsystem, gamepad1, odometrySubsystem);
 

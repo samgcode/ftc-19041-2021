@@ -1,22 +1,19 @@
 package org.firstinspires.ftc.teamcode.Commands;
 
 import com.arcrobotics.ftclib.command.CommandBase;
-import com.arcrobotics.ftclib.hardware.RevIMU;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-import java.util.function.DoubleSupplier;
-
-import org.firstinspires.ftc.teamcode.Subsystems.OdometrySubsystem;
+import org.firstinspires.ftc.teamcode.Subsystems.CustomOdometrySubsystem;
 import org.firstinspires.ftc.teamcode.Utils.Vector;
 import org.firstinspires.ftc.teamcode.Subsystems.DriveSubsystem;
 
 public class SetDriveSpeedCommand extends CommandBase {
     DriveSubsystem driveSubsystem;
     Gamepad gamepad;
-    OdometrySubsystem odometrySubsystem;
+    CustomOdometrySubsystem odometrySubsystem;
 
 
-    public SetDriveSpeedCommand(DriveSubsystem subsystem_, Gamepad gamepad_, OdometrySubsystem odometrySubsystem_) {
+    public SetDriveSpeedCommand(DriveSubsystem subsystem_, Gamepad gamepad_, CustomOdometrySubsystem odometrySubsystem_) {
         driveSubsystem = subsystem_;
         gamepad = gamepad_;
         odometrySubsystem = odometrySubsystem_;

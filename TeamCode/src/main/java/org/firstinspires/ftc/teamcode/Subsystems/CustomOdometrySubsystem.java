@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode.Subsystems;
 
+import com.arcrobotics.ftclib.command.OdometrySubsystem;
 import com.arcrobotics.ftclib.command.SubsystemBase;
 import com.arcrobotics.ftclib.geometry.Pose2d;
 import com.arcrobotics.ftclib.geometry.Rotation2d;
 import com.arcrobotics.ftclib.hardware.RevIMU;
+import com.arcrobotics.ftclib.hardware.motors.Motor;
 import com.arcrobotics.ftclib.hardware.motors.MotorEx;
 import com.arcrobotics.ftclib.kinematics.HolonomicOdometry;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -11,20 +13,20 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 import org.firstinspires.ftc.teamcode.Utils.Vector;
 
-public class OdometrySubsystem extends SubsystemBase {
+public class CustomOdometrySubsystem extends SubsystemBase {
     MotorEx encoderLeft, encoderRight, encoderPerp;
     RevIMU imu;
     HolonomicOdometry holOdom;
     HardwareMap hardwareMap;
     Telemetry telemetry;
 
-    static final double TRACK_WIDTH = 10.4;
-    static final double TICKS_TO_INCHES = (Math.PI*3.54331)/1120;
-    static final double CENTER_WHEEL_OFFSET = 5.5;
+    static double TRACK_WIDTH = 10.4;
+    static double TICKS_TO_INCHES = (Math.PI*3.54331)/1120;
+    static double CENTER_WHEEL_OFFSET = 5.5;
 
     Vector position;
 
-    public OdometrySubsystem(HardwareMap hMap_, Telemetry telemetry_) {
+    public CustomOdometrySubsystem(HardwareMap hMap_, Telemetry telemetry_) {
         hardwareMap = hMap_;
         telemetry = telemetry_;
 
